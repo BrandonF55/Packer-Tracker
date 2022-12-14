@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dem Places!</title>
+    <link 
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+      crossorigin="anonymous">
+  </head>
+  <body style="color: #F67280; text-align: center; padding-top: 50px; background-color: #355C7D; position: relative; ">
+    @using ItemTracker.Models;
+
+    <h1><u>Items</u></h1>
+
+    @if (Model.Count == 0)
+    {
+      <p>Add gear</p>
+    }
+    <ul>
+      @foreach (Item i in Model)
+      {
+        <li style="list-style: none; text-align: center;"><a href='/items/@i.Id' style="text-decoration: none; color: black;"><u>@i.Name</u></a></li>
+      }
+    </ul>
+    
+    <a href="/items/new" style="text-decoration: none; color: black;"><u>Add Items.</u></a>
+    <br>
+    <br>
+
+
+    <form action="/items/delete" method="post">
+      <button style="border-radius: 20px;"  type="submit" name="button">Clear All items</button>
+    </form>
+  </body>
+</html>

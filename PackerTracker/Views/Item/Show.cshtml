@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Places I've been!</title>
+    <link 
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+      crossorigin="anonymous">
+  </head>
+  <body style="text-align: center; padding-top: 50px; background-color: gray; text-decoration: none;">
+    <h1><u> 📦 Item Details: 📦</u></h1>
+    <h3>Name: @Model.Name</h2>
+    <h3>Weight:@Model.Weight lbs</h2>
+    @* <h2>Accompanied By: @Model.Accomp</h2>
+    <h2>Journal Entry: @Model.Journal</h2><br> *@
+
+
+
+    <a style="text-decoration: none; color: black;" href='/items/new'><u>Add another item!</u></a><br>
+    <a style="text-decoration: none; color: black;" href='/items'><u>View your gear! 💣</u></a>
+
+    <form action="/items/delete" method="post">
+    <button style="border-radius: 20px; margin-top: 20px; " type="submit">Delete Item!</button>
+    
+    </form>
+  </body>
+</html>
