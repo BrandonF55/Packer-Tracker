@@ -12,7 +12,7 @@
 
   <ItemGroup>
 <!-- Change project name! -->
-    <ProjectReference Include="..\ProjectName\ProjectName.csproj" />  
+    <ProjectReference Include="..\PackerTracker\PackerTracker.csproj" />  
   </ItemGroup>
 
 </Project>
