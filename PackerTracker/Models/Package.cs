@@ -1,29 +1,47 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 
-namespace ToDoList // Change project name!
+namespace PackageTracker.Models
 {
-  class Program
+  public class Package
   {
-    static void Main(string[] args)
+    public string Name { get; set; }
+    public int Weight { get; set; }
+    public int Cost { get; set; }
+    public int Id { get; set; }
+    private List<Package> packageList = new List<Package>();
+
+
+
+    public Package(string name, int weight, int cost, int id)
     {
-      WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+      Name = name;
+      Weight = weight;
+      Cost = cost;
+      packageList.Add(this);
+      Id = _instances.Count;
 
-      builder.Services.AddControllersWithViews();
-
-      WebApplication app = builder.Build();
-
-      // app.UseDeveloperExceptionPage();
-      app.UseHttpsRedirection();
-
-      app.UseRouting();
-
-      app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}"
-      );
-
-      app.Run();
     }
+
+    public static List<Package> GetAll()
+    {
+      return packageList;
+    }
+
+    public static void ClearAll()
+    {
+      packageList.Clear();
+    }
+
+    public static Package Find(int searchId)
+    {
+      return packageList[searchId - 1];
+    }
+
+
+
+
+
+
+
   }
 }
